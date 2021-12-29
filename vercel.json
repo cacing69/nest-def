@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "env": {
-    "ENV_CHECK": "@ENV_CHECK"
-  },
   "builds": [
     {
       "src": "src/main.ts",
