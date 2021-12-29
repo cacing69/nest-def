@@ -1,7 +1,7 @@
 {
   "version": 2,
   "env": {
-    "ENV_CHECK": "@app_env_check"
+    "ENV_CHECK": "@ENV_CHECK"
   },
   "builds": [
     {
