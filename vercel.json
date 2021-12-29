@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "env": {
+    "ENV_CHECK": "@app_env_check"
+  },
   "builds": [
     {
       "src": "src/main.ts",
@@ -10,12 +13,7 @@
     {
       "src": "/(.*)",
       "dest": "src/main.ts",
-      "methods" : [
-          "GET",
-          "POST",
-          "PUT",
-          "DELETE"
-      ]
+      "methods": ["GET", "POST", "PUT", "DELETE"]
     }
   ]
 }
