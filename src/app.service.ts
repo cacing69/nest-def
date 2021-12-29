@@ -6,7 +6,10 @@ export class AppService {
     return {
       app: 'api',
       ver: '1.0.1',
-      env: process.env.NEST_ENV_CHECK || false,
+      env: {
+        nest_env_check: process.env.NEST_ENV_CHECK || null,
+        db_host: process.env.DATABASE_HOST || null,
+      },
       dev: ['@cacing69'],
     };
   }

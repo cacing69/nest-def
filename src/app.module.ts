@@ -6,9 +6,35 @@ import { UserModule } from './user/user.module';
 import { CheckModule } from './check/check.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TestModule } from './test/test.module';
+import { Test } from './test/entities/test.entity';
 
 @Module({
-  imports: [AuthModule, UserModule, CheckModule],
+  imports: [
+    AuthModule,
+    UserModule,
+    CheckModule,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.DATABASE_HOST,
+      port: Number(process.env.DATABASE_PORT),
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
+      entities: [Test],
+      synchronize: Boolean(JSON.parse(process.env.DATABASE_SYNC)),
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
+    }),
+    TestModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,
