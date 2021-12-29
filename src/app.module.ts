@@ -18,7 +18,7 @@ import { Test } from './test/entities/test.entity';
     CheckModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: process.env.DATABASE_ENGINE,
+      type: 'postgres',
       host: process.env.DATABASE_HOST,
       port: Number(process.env.DATABASE_PORT),
       username: process.env.DATABASE_USERNAME,
