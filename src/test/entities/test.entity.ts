@@ -1,3 +1,4 @@
+import { Expose, plainToClass, Transform, Type } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -7,15 +8,32 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+class Meta {
+  @Expose()
+  key?: string;
+
+  @Expose()
+  value?: string;
+}
 @Entity()
 export class Test {
   @PrimaryGeneratedColumn('uuid')
+  @Expose()
   uuid!: string;
 
   @Column()
+  @Expose()
   key!: string;
 
   @Column()
+  @Expose()
+  @Transform((value) => {
+    if (value.value == 'lorem_1') {
+      return '******';
+    } else {
+      return value.value;
+    }
+  })
   value!: string;
 
   @Column({
@@ -24,12 +42,17 @@ export class Test {
     default: () => "'{}'",
     nullable: false,
   })
-  meta?: object;
+  @Expose()
+  @Transform((value) => {
+    return plainToClass(Meta, value.value);
+  })
+  meta: object;
 
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP()',
   })
+  //   @Expose({ name: 'createdAt' })
   created_at: Date;
 
   @UpdateDateColumn({

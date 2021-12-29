@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  SerializeOptions,
 } from '@nestjs/common';
 import { TestService } from './test.service';
 import { CreateTestDto } from './dto/create-test.dto';
@@ -13,6 +14,9 @@ import { UpdateTestDto } from './dto/update-test.dto';
 import { Public } from 'src/decorators/public.decorator';
 
 @Controller('test')
+@SerializeOptions({
+  strategy: 'excludeAll',
+})
 export class TestController {
   constructor(private readonly testService: TestService) {}
 
