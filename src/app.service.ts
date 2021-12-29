@@ -7,7 +7,7 @@ export class AppService {
       app: 'api',
       version: '1.0.1',
       env: process.env.ENV_CHECK,
-      creator: ['@cacing69'],
+      creator: ['@cacing69', '@user2'],
     };
   }
 }
