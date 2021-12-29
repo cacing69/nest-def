@@ -1,4 +1,4 @@
-export const constant = {
+export const appConstant = {
   jwtSecret:
     't#|5_!5_$3r3+*@&*#@@@@@*&#.@&###*#&$*$$*$*$&&$&$&$&$&$^#^@%$@%%@&@@!!!*^&%$!!!!~',
 };
