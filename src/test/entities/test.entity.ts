@@ -15,7 +15,7 @@ class Meta {
   @Expose()
   value?: string;
 }
-@Entity()
+@Entity('test', { schema: 'dummy' })
 export class Test {
   @PrimaryGeneratedColumn('uuid')
   @Expose()
