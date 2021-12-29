@@ -7,14 +7,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Meta } from './meta_test.entity';
 
-class Meta {
-  @Expose()
-  key?: string;
-
-  @Expose()
-  value?: string;
-}
 @Entity('test', { schema: 'dummy' })
 export class Test {
   @PrimaryGeneratedColumn('uuid')
@@ -27,11 +21,11 @@ export class Test {
 
   @Column()
   @Expose()
-  @Transform((value) => {
-    if (value.value == 'lorem_1') {
+  @Transform((e) => {
+    if (e.value == 'lorem_1') {
       return '******';
     } else {
-      return value.value;
+      return e.value;
     }
   })
   value!: string;
@@ -43,9 +37,7 @@ export class Test {
     nullable: false,
   })
   @Expose()
-  @Transform((value) => {
-    return plainToClass(Meta, value.value);
-  })
+  @Type(() => Meta)
   meta: object;
 
   @CreateDateColumn({
