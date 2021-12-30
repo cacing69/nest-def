@@ -12,13 +12,20 @@ import { TestModule } from './test/test.module';
 import { Test } from './test/entities/test.entity';
 import { User } from './user/entities/user.entity';
 import { TestDetail } from './test/entities/test-detail.entity';
+import Joi from 'joi';
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
     CheckModule,
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      // validationSchema: Joi.object({
+      //   JWT_SECRET: Joi.string().required(),
+      //   JWT_EXPIRATION_TIME: Joi.string().required(),
+      // }),
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DATABASE_HOST,

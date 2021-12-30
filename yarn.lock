@@ -378,6 +378,18 @@
   dependencies:
     ajv "^6.12.6"
 
+"@hapi/hoek@^9.0.0":
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.1.tgz#9551142a1980503752536b5050fd99f4a7f13b17"
+  integrity sha512-gfta+H8aziZsm8pZa0vj04KO6biEiisppNgA1kbJvFrrWu9Vm7eaUEy76DIxsuTaWvti5fkJVhllWc6ZTE+Mdw==
+
+"@hapi/topo@^5.0.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@hapi/topo/-/topo-5.1.0.tgz#dc448e332c6c6e37a4dc02fd84ba8d44b9afb012"
+  integrity sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==
+  dependencies:
+    "@hapi/hoek" "^9.0.0"
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.9.2.tgz"
@@ -742,6 +754,23 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
+"@sideway/address@^4.1.3":
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.3.tgz#d93cce5d45c5daec92ad76db492cc2ee3c64ab27"
+  integrity sha512-8ncEUtmnTsMmL7z1YPB47kPUq7LpKWJNFPsRzHiIajGC5uXlWGn+AmkYPcHNl8S4tcEGx+cnORnNYaw2wvL+LQ==
+  dependencies:
+    "@hapi/hoek" "^9.0.0"
+
+"@sideway/formula@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@sideway/formula/-/formula-3.0.0.tgz#fe158aee32e6bd5de85044be615bc08478a0a13c"
+  integrity sha512-vHe7wZ4NOXVfkoRb8T5otiENVlT7a3IAiw7H5M2+GO+9CDgcVUUsX1zalAztCmwyOr2RUTGJdgB+ZvSVqmdHmg==
+
+"@sideway/pinpoint@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
+  integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.3.tgz"
@@ -840,6 +869,13 @@
   integrity sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==
   dependencies:
     "@types/node" "*"
+
+"@types/cookie-parser@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@types/cookie-parser/-/cookie-parser-1.4.2.tgz#e4d5c5ffda82b80672a88a4281aaceefb1bd9df5"
+  integrity sha512-uwcY8m6SDQqciHsqcKDGbo10GdasYsPCYkH3hVegj9qAah6pX5HivOnOuI3WYmyQMnOATV39zv/Ybs0bC/6iVg==
+  dependencies:
+    "@types/express" "*"
 
 "@types/cookiejar@*":
   version "2.1.2"
@@ -1902,7 +1938,25 @@ convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
   dependencies:
     safe-buffer "~5.1.1"
 
-cookie@^0.4.0:
+cookie-parser@^1.4.6:
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/cookie-parser/-/cookie-parser-1.4.6.tgz#3ac3a7d35a7a03bbc7e365073a26074824214594"
+  integrity sha512-z3IzaNjdwUC2olLIB5/ITd0/setiaFMLYiZJle7xg5Fe9KWAceil7xszYfHHBtDFYLSgJduS2Ty0P1uJdPDJeA==
+  dependencies:
+    cookie "0.4.1"
+    cookie-signature "1.0.6"
+
+cookie-signature@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
+  integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
+
+cookie-signature@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.1.0.tgz#cc94974f91fb9a9c1bb485e95fc2b7f4b120aff2"
+  integrity sha512-Alvs19Vgq07eunykd3Xy2jF0/qSNv2u7KDbAek9H5liV1UMijbqFs5cycZvv5dVsvseT/U4H8/7/w8Koh35C4A==
+
+cookie@0.4.1, cookie@^0.4.0:
   version "0.4.1"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
@@ -2400,6 +2454,14 @@ fast-safe-stringify@2.1.1, fast-safe-stringify@^2.0.7, fast-safe-stringify@^2.0.
   resolved "https://registry.npmjs.org/fast-safe-stringify/-/fast-safe-stringify-2.1.1.tgz"
   integrity sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==
 
+fastify-cookie@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/fastify-cookie/-/fastify-cookie-5.4.0.tgz#2648b64a9f4090c783369b86f5862b1cc501fec3"
+  integrity sha512-uKTbOLx6pSyKqA9oD2G9hpMuRTVtKRm98bRwJVg4ga7GCm+RR6771stmfhbblXxHHcQQHuHvwdOdPeHJjr2sgg==
+  dependencies:
+    cookie-signature "^1.1.0"
+    fastify-plugin "^3.0.0"
+
 fastify-cors@6.0.2:
   version "6.0.2"
   resolved "https://registry.npmjs.org/fastify-cors/-/fastify-cors-6.0.2.tgz"
@@ -2451,6 +2513,27 @@ fastify@3.24.1:
     semver "^7.3.2"
     tiny-lru "^7.0.0"
 
+fastify@^3.25.3:
+  version "3.25.3"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-3.25.3.tgz#7a2578edbdb59729cbf48ec44b5ae2b0f8db1f4a"
+  integrity sha512-20SbobjjMfjGNCU4PlcZis3d5XLDtQxIbcAf6ogi/8zPxRxOOkKwfjmj7yW9Q1VnxDpBwcllwPtbZ/LyvQzXbQ==
+  dependencies:
+    "@fastify/ajv-compiler" "^1.0.0"
+    abstract-logging "^2.0.0"
+    avvio "^7.1.2"
+    fast-json-stringify "^2.5.2"
+    fastify-error "^0.3.0"
+    find-my-way "^4.5.0"
+    flatstr "^1.0.12"
+    light-my-request "^4.2.0"
+    pino "^6.13.0"
+    process-warning "^1.0.0"
+    proxy-addr "^2.0.7"
+    rfdc "^1.1.4"
+    secure-json-parse "^2.0.0"
+    semver "^7.3.2"
+    tiny-lru "^7.0.0"
+
 fastq@^1.6.0, fastq@^1.6.1:
   version "1.13.0"
   resolved "https://registry.npmjs.org/fastq/-/fastq-1.13.0.tgz"
@@ -2486,7 +2569,7 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-find-my-way@^4.1.0:
+find-my-way@^4.1.0, find-my-way@^4.5.0:
   version "4.5.1"
   resolved "https://registry.npmjs.org/find-my-way/-/find-my-way-4.5.1.tgz"
   integrity sha512-kE0u7sGoUFbMXcOG/xpkmz4sRLCklERnBcg7Ftuu1iAxsfEt2S46RLJ3Sq7vshsEy2wJT2hZxE58XZK27qa8kg==
@@ -3446,6 +3529,17 @@ jest@^27.2.5:
     "@jest/core" "^27.4.5"
     import-local "^3.0.2"
     jest-cli "^27.4.5"
+
+joi@^17.5.0:
+  version "17.5.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.5.0.tgz#7e66d0004b5045d971cf416a55fb61d33ac6e011"
+  integrity sha512-R7hR50COp7StzLnDi4ywOXHrBrgNXuUUfJWIR5lPY5Bm/pOD3jZaTwpluUXVLRWcoWZxkrHBBJ5hLxgnlehbdw==
+  dependencies:
+    "@hapi/hoek" "^9.0.0"
+    "@hapi/topo" "^5.0.0"
+    "@sideway/address" "^4.1.3"
+    "@sideway/formula" "^3.0.0"
+    "@sideway/pinpoint" "^2.0.0"
 
 js-tokens@^4.0.0:
   version "4.0.0"

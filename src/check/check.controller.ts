@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Req, SerializeOptions } from '@nestjs/common';
 import { Public } from 'src/decorators/public.decorator';
 
 @Controller('check')
@@ -13,7 +13,7 @@ export class CheckController {
   }
 
   @Get('private')
-  getPrivate(): any {
+  getPrivate(@Req() req): any {
     return {
       public: false,
       private: true,

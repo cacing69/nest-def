@@ -1,5 +1,6 @@
 import { Expose } from 'class-transformer';
 import {
+  Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
@@ -12,6 +13,13 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   @Expose()
   uuid!: string;
+
+  @Column({ unique: true })
+  @Expose()
+  email!: string;
+
+  @Column()
+  password!: string;
 
   @CreateDateColumn({
     type: 'timestamp',
