@@ -1,12 +1,9 @@
 import { Expose, Transform, Type } from 'class-transformer';
-import { User } from 'src/user/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -63,12 +60,8 @@ export class Test {
   })
   deleted_at: Date;
 
-  @Expose()
-  @OneToOne(() => User, {
-    eager: true,
-  })
-  @JoinColumn({ name: 'created_by' })
-  created_by: User;
+  @Column()
+  created_by?: string;
 
   @Column()
   updated_by?: string;
