@@ -37,7 +37,7 @@ export class TestService {
   }
 
   findOne(id: string): Promise<Test> {
-    return this.testRepository.findOne(id, { relations: [] });
+    return this.testRepository.findOne(id, { relations: ['detail'] });
   }
 
   update(id: number, updateTestDto: UpdateTestDto) {

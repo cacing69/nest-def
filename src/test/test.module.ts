@@ -4,9 +4,10 @@ import { TestController } from './test.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Test } from './entities/test.entity';
 import { TestDetail } from './entities/test-detail.entity';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Test, TestDetail])],
+  imports: [UserModule, TypeOrmModule.forFeature([Test, TestDetail])],
   controllers: [TestController],
   providers: [TestService],
 })
