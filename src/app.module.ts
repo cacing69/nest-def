@@ -12,7 +12,6 @@ import { TestModule } from './test/test.module';
 import { Test } from './test/entities/test.entity';
 import { User } from './user/entities/user.entity';
 import { TestDetail } from './test/entities/test-detail.entity';
-import Joi from 'joi';
 
 @Module({
   imports: [
