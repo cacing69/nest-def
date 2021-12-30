@@ -12,8 +12,8 @@ import {
 import { Public } from 'src/decorators/public.decorator';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
-import { JwtAuthGuard } from './jwt-auth.guard';
-import { LocalAuthGuard } from './local-auth.guard';
+import { JwtAuthGuard } from './guard/jwt-auth.guard';
+import { LocalAuthGuard } from './guard/local-auth.guard';
 import { FastifyReply } from 'fastify';
 
 @Controller('auth')
