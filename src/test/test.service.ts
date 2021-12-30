@@ -33,10 +33,11 @@ export class TestService {
 
   findAll(): Promise<Test[]> {
     return this.testRepository.find();
+    // return await this.testRepository.find();
   }
 
   findOne(id: string): Promise<Test> {
-    return this.testRepository.findOne(id);
+    return this.testRepository.findOne(id, { relations: [] });
   }
 
   update(id: number, updateTestDto: UpdateTestDto) {

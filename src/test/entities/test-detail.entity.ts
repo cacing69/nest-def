@@ -1,44 +1,28 @@
-import { Expose, Transform, Type } from 'class-transformer';
+import { Expose } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Meta } from './meta-test.entity';
+import { Test } from './test.entity';
 
-@Entity('test', { schema: 'dummy' })
-export class Test {
+@Entity('test_detail', { schema: 'dummy' })
+export class TestDetail {
   @PrimaryGeneratedColumn('uuid')
   @Expose()
   uuid!: string;
 
   @Column()
-  @Expose()
-  key!: string;
+  test_uuid!: string;
 
-  @Column()
-  @Expose()
-  @Transform((e) => {
-    if (e.value == 'lorem_1') {
-      return '******';
-    } else {
-      return e.value;
-    }
-  })
-  value!: string;
-
-  @Column({
-    type: 'jsonb',
-    array: false,
-    default: () => "'{}'",
-    nullable: false,
-  })
-  @Expose()
-  @Type(() => Meta)
-  meta: object;
+  @ManyToOne(() => Test, (e: Test) => e.detail)
+  @JoinColumn({ name: 'test_uuid', referencedColumnName: 'uuid' })
+  test: Test;
 
   @CreateDateColumn({
     type: 'timestamp',

@@ -6,11 +6,13 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Meta } from './meta-test.entity';
+import { TestDetail } from './test-detail.entity';
 
 @Entity('test', { schema: 'dummy' })
 export class Test {
@@ -66,9 +68,16 @@ export class Test {
   @Expose()
   @OneToOne(() => User, {
     eager: true,
+    cascade: true,
   })
   @JoinColumn({ name: 'created_by' })
   created_by: User;
+
+  @Expose()
+  @OneToMany(() => TestDetail, (e: TestDetail) => e.test, {
+    eager: false,
+  })
+  detail: TestDetail[];
 
   @Column()
   updated_by?: string;
