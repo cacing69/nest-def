@@ -10,11 +10,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Public } from 'src/decorators/public.decorator';
-import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { JwtAuthGuard } from './guard/jwt-auth.guard';
 import { LocalAuthGuard } from './guard/local-auth.guard';
 import { FastifyReply } from 'fastify';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 @SerializeOptions({
