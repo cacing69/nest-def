@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -21,6 +21,7 @@ export class User {
   @Column()
   password!: string;
 
+  @Exclude()
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP()',
@@ -28,6 +29,7 @@ export class User {
   //   @Expose({ name: 'createdAt' })
   created_at: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP()',
@@ -35,6 +37,7 @@ export class User {
   })
   updated_at: Date;
 
+  @Exclude()
   @DeleteDateColumn({
     type: 'timestamp',
     default: () => null,

@@ -5,7 +5,6 @@ import {
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
-import * as cookieParser from 'cookie-parser';
 import fastifyCookie from 'fastify-cookie';
 
 async function bootstrap() {
@@ -19,7 +18,6 @@ async function bootstrap() {
   app.register(fastifyCookie, {
     secret: process.env.COOKIES_SECRET, // for cookies signature
   });
-  app.use(await cookieParser());
   await app.listen(3000, '0.0.0.0');
 }
 bootstrap();

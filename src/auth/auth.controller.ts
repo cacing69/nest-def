@@ -15,6 +15,8 @@ import { JwtAuthGuard } from './guard/jwt-auth.guard';
 import { LocalAuthGuard } from './guard/local-auth.guard';
 import { FastifyReply } from 'fastify';
 import { AuthService } from './auth.service';
+import { plainToClass } from 'class-transformer';
+import { User } from 'src/user/entities/user.entity';
 
 @Controller('auth')
 @SerializeOptions({
@@ -28,7 +30,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async postLogin(@Request() req, @Res() res: FastifyReply) {
-    const user = req.user;
+    const user = plainToClass(User, req.user);
 
     // return user;
     // console.log(user);
