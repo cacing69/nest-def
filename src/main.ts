@@ -5,7 +5,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
-import cookieParser from 'cookie-parser';
+import * as cookieParser from 'cookie-parser';
 import fastifyCookie from 'fastify-cookie';
 
 async function bootstrap() {
@@ -17,9 +17,9 @@ async function bootstrap() {
 
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.register(fastifyCookie, {
-    secret: 'my-secret', // for cookies signature
+    secret: process.env.COOKIES_SECRET, // for cookies signature
   });
-  app.use(cookieParser());
+  app.use(await cookieParser());
   await app.listen(3000, '0.0.0.0');
 }
 bootstrap();
